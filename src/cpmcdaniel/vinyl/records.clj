@@ -2,7 +2,7 @@
   (:require [clojure.string :as s]
             [clj-time.core :as t]
             [clj-time.format :as tf])
-  (:import (java.io Reader BufferedReader StringReader)))
+  (:import (java.io BufferedReader StringReader)))
 
 (defrecord Record [last-name first-name gender favorite-color date-of-birth])
 
@@ -107,21 +107,21 @@
                  (format "Expected 5 fields per line, received %d from line: %s"
                          (count args) line)))))))
 
-(defprotocol RecordReader
+(defprotocol RecordParser
   "Reads an input into a seq of Records"
-  (read-records [input]))
+  (parse-records [input]))
 
-(extend-protocol RecordReader
+(extend-protocol RecordParser
   java.io.Reader
-  (read-records [input]
+  (parse-records [input]
     (let [lines (line-seq (BufferedReader. input))
           delimiter (get-delimiter (first lines))
           line->record (make-line->record delimiter)]
       (map line->record lines)))
 
   String
-  (read-records [input]
-    (read-records (StringReader. input))))
+  (parse-records [input]
+    (parse-records (StringReader. input))))
 
 (defn sort-by-gender
   [records]

@@ -18,8 +18,8 @@
   (doseq [delim (seq sut/delimiter?)]
     (is (= delim (sut/check-delimiter! delim)))))
 
-(deftest read-string-test
-  (let [[fred jane] (sut/read-records "Wilson|Fred|male|blue|01/22/2004\nSmith|Jane|female|purple|04/13/2000")]
+(deftest parse-records-test
+  (let [[fred jane] (sut/parse-records "Wilson|Fred|male|blue|01/22/2004\nSmith|Jane|female|purple|04/13/2000")]
     (is (= "Wilson" (:last-name fred)))
     (is (= "Smith" (:last-name jane)))))
 
