@@ -1,10 +1,6 @@
 # vinyl
 
-FIXME: my new application.
-
-## Installation
-
-Download from https://github.com/cpmcdaniel/vinyl.
+Sample application that reads input "records" and provides soreted output.
 
 ## Usage
 
