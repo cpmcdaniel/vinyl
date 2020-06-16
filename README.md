@@ -12,37 +12,17 @@ Run the project directly:
 
     $ clojure -m cpmcdaniel.vinyl samples/file-pipes.txt samples/file-commas.txt samples/file-spaces.txt
 
-Run the project's tests (they'll fail until you edit them):
+Or, to serve up the REST API:
+
+    $ clojure -m cpmcdaniel.vinyl 
+
+Run the project's tests:
 
     $ clojure -A:test:runner
 
-Build an uberjar:
-
-    $ clojure -A:uberjar
-
-Run that uberjar:
-
-    $ java -jar vinyl.jar
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
 ## License
 
-Copyright © 2020 Cpmcd
+Copyright © 2020 Craig McDaniel
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
