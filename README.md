@@ -8,11 +8,9 @@ Download from https://github.com/cpmcdaniel/vinyl.
 
 ## Usage
 
-FIXME: explanation
-
 Run the project directly:
 
-    $ clojure -m cpmcdaniel.vinyl
+    $ clojure -m cpmcdaniel.vinyl samples/file-pipes.txt samples/file-commas.txt samples/file-spaces.txt
 
 Run the project's tests (they'll fail until you edit them):
 

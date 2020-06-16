@@ -1,7 +1,8 @@
 (ns cpmcdaniel.vinyl.records
   (:require [clojure.string :as s]
             [clj-time.core :as t]
-            [clj-time.format :as tf])
+            [clj-time.format :as tf]
+            [clojure.java.io :as io])
   (:import (java.io BufferedReader StringReader)))
 
 (defrecord Record [last-name first-name gender favorite-color date-of-birth])
@@ -118,6 +119,11 @@
           delimiter (get-delimiter (first lines))
           line->record (make-line->record delimiter)]
       (map line->record lines)))
+
+  java.io.File
+  (parse-records [f]
+    (with-open [r (io/reader f)]
+      (doall (parse-records r))))
 
   String
   (parse-records [input]

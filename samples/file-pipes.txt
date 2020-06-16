@@ -1,0 +1,3 @@
+Wilson | Fred | M | blue | 20010324
+Smith | Jane | F | purple | 20010213
+Walker | Sarah | F | red | 19931022
