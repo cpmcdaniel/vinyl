@@ -1,7 +1,6 @@
 (ns cpmcdaniel.vinyl.files
   (:require [clojure.java.io :as io]
-            [cpmcdaniel.vinyl.records :as recs])
-  (:import (cpmcdaniel.vinyl.records RecordParser)))
+            [cpmcdaniel.vinyl.records :as recs]))
 
 (defn strings->files
   "Converts string paths to files. Throws exception if one of the files does not exist."

@@ -121,8 +121,13 @@
       (map line->record lines)))
 
   java.io.File
-  (parse-records [f]
-    (with-open [r (io/reader f)]
+  (parse-records [input]
+    (with-open [r (io/reader input)]
+      (doall (parse-records r))))
+
+  java.io.InputStream
+  (parse-records [input]
+    (with-open [r (io/reader input)]
       (doall (parse-records r))))
 
   String
@@ -150,4 +155,3 @@
       (update :date-of-birth format-date)
       (vals)
       (join-fields)))
-

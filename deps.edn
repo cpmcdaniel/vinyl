@@ -1,6 +1,9 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure {:mvn/version "1.10.1"}
-        clj-time {:mvn/version "0.15.2"}}
+        clj-time {:mvn/version "0.15.2"}
+        compojure {:mvn/version "1.6.1"}
+        ring/ring-json {:mvn/version "0.5.0"}
+        ring/ring-jetty-adapter {:mvn/version "1.7.1"}}
  :aliases
  {:test {:extra-paths ["test"]
          :extra-deps {org.clojure/test.check {:mvn/version "1.0.0"}}}
