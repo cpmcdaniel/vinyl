@@ -2,15 +2,24 @@
   (:require [compojure.core :refer :all]
             [ring.middleware.json :as json]
             [ring.util.response :as resp]
-            [cpmcdaniel.vinyl.records :as recs]))
+            [cpmcdaniel.vinyl.records :as recs]
+            [clojure.stacktrace :refer [print-stack-trace]]))
 
 (def db (atom #{}))
 
 (defn create-records
   [{:keys [^java.io.InputStream body]}]
-  (let [records (recs/parse-records body)]
-    (swap! db into records)
-    {:status 201}))
+  (try
+    (let [records (recs/parse-records body)]
+      (swap! db into records)
+      {:status 201})
+    (catch IllegalArgumentException e
+      (->
+        (with-out-str
+          (print "Invalid input: ")
+          (print-stack-trace e))
+        (resp/bad-request)
+        (resp/header "Content-Type" "text/plain")))))
 
 (defn get-records
   [sort-fn]
