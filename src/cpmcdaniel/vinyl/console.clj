@@ -6,9 +6,9 @@
   (.write w (recs/format-record r)))
 
 (defn print-all
-  "Prints all records, first sorted by gender, then birth date, then last name descending."
+  "Prints all records, first sorted by gender/last name, then birth date, then last name descending."
   [records]
-  (println "Sorted by gender:")
+  (println "Sorted by gender, then last name:")
   (doseq [rec (recs/sort-by-gender records)]
     (prn rec))
   (println)
@@ -16,6 +16,6 @@
   (doseq [rec (recs/sort-by-dob records)]
     (prn rec))
   (println)
-  (println "Sorted by last name, ascending:")
+  (println "Sorted by last name, descending:")
   (doseq [rec (recs/sort-by-last-name records)]
     (prn rec)))

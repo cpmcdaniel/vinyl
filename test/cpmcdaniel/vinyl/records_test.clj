@@ -50,7 +50,7 @@
   (let [fred (sut/->Record "Wilson" "Fred" "M" "blue" (sut/parse-date "20010304"))
         jane (sut/->Record "Smith" "Jane" "F" "purple" (sut/parse-date "20010223"))
         tom (sut/->Record "Apple" "Tom" "M" "green" (sut/parse-date "20010112"))
-        tests [[sut/sort-by-gender [fred jane] [jane fred]]
+        tests [[sut/sort-by-gender [fred jane tom] [jane tom fred]]
                [sut/sort-by-dob [fred jane tom] [tom jane fred]]
                [sut/sort-by-last-name [tom fred jane] [fred jane tom]]]]
     (doseq [[sort-fn records expected] tests]

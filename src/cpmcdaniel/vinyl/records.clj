@@ -136,7 +136,7 @@
 
 (defn sort-by-gender
   [records]
-  (sort-by :gender records))
+  (sort-by (juxt :gender :last-name) records))
 
 (defn sort-by-dob
   [records]
